@@ -24,7 +24,7 @@
 
 Errors cannot be handled in an application using exceptions-handling mechanisms.
 
-## Clases representing Error and Exception:
+## Classes representing Error and Exception:
 [Photo](clases_ErrorException.png)
 
 Depends when de exception and the error ocurs, can be categorized like:
@@ -47,7 +47,18 @@ Exception:
 
 **Checked Exceptions**. The compiler checks the code and signals that something is not right and that it needs to be handled.
 
-**Unchecked Exceptions**. Not checked by the compiler. Anything that is not correct will pass on to the runtime.
+## VIDEO:Unchecked-exceptions-in-action
+**Unchecked Exceptions**.
+- Not checked by the compiler.
+- Detected by Java runtime.
+- Also know as runtime exceptions.
+
+Checked exceptions
+Caught, declared, or thrown from code using the Throws keyword.
+
+
+
+
 
 
 

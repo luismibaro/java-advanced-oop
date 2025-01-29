@@ -24,7 +24,7 @@ public class Calculator {
 	// Second: surrounding the code with a try-catch block
 	void readNumbersFromFile() {
 		try {
-			Scanner fileScanner = new Scanner(new File("/src/numbers.txt"));
+			Scanner fileScanner = new Scanner(new File("src/numbers.txt"));
 			int firstNumber = fileScanner.nextInt();
 			int secondNumber = fileScanner.nextInt();
 		} catch (FileNotFoundException fileNotFoundException){
