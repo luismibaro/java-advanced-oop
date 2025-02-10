@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImplementingInterfaces.iml" filepath="$PROJECT_DIR$/ImplementingInterfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcreteAndAbstract.iml" filepath="$PROJECT_DIR$/ConcreteAndAbstract.iml" />
     </modules>
   </component>
 </project>
