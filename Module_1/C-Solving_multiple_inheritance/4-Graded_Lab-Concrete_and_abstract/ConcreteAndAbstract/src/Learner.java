@@ -19,22 +19,33 @@ public class Learner implements Assessments {
 
     //TODO 13: override assignmentScore() method
     @Override
-    public double assignmentScore() {
-        return 1;
+    public void assignmentScore(int marks) {
+        this.course.assignmentMarks  = marks;
     }
 
     //TODO 14: override quizScore() method
     @Override
-    public double quizScore() {
-        return 1;
+    public void quizScore(int marks) {
+        this.course.quizMarks = marks;
     }
 
 
     public double calculateGrade() {
         int maxAssignmentMarks, maxQuizMarks;
         //TODO 17: calculate gradeScore as per the instructions above
-        System.out.println(this.name+" online");
+
+        if(this.course.subject.title.contains("Online")){
+            maxAssignmentMarks = 30;
+            maxQuizMarks = 10;
+        }else{
+            maxAssignmentMarks = 100;
+            maxQuizMarks = 30;
+        }
+        double assignmentGrade = (double)this.course.assignmentMarks*10/maxAssignmentMarks;
+        double quizGrade = (double)this.course.quizMarks*10/maxQuizMarks;
+
+        this.gradeScore = (assignmentGrade + quizGrade) /2;
         return this.gradeScore;
     }
-
 }
+
