@@ -1,4 +1,4 @@
-package usingTheFinallyBlock;
+package A_Using_the_finally_block;
 
 public class FinallyTestOne {
     public static void main(String[] args) {
