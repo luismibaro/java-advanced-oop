@@ -1,14 +1,20 @@
+import java.util.Set;
+
 public class Latte extends Coffee {
     String milkType;
     String syrupFlavor;
 
-    // TODO 12: declare that the constructors throws a InvalidTypeException
     public Latte(String name, String roast, double price, String milkType, String syrupFlavor) {
         super(name, roast, price);
 
-        // TODO 11: check whether a valid milkType is selected, if not throw an exception with a message
+        Set<String> validMilkTypes = Set.of("whole", "skim", "almond", "oat");
+        if(!validMilkTypes.contains(milkType)){
+            throw new IllegalArgumentException("please select a valid milk type!");
+        }
         this.milkType = milkType;
         this.syrupFlavor = syrupFlavor;
+
+
     }
 
     public void printLatteDetails() {

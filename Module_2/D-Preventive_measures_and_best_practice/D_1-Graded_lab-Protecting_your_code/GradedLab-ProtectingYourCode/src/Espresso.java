@@ -2,11 +2,12 @@ public class Espresso extends Coffee {
 
     int numberOfShots;
 
-    // TODO 6: declare that the constructor throws a ArithmeticException
     public Espresso(String name, String roast, double price, int numberOfShots) {
         super(name, roast, price);
 
-        // TODO 5: check whether at least 1 serving has been selected, if not, throw an exception with a message
+        if(numberOfShots <= 0){
+            throw new ArithmeticException("please select at least 1 serving!");
+        }
         this.numberOfShots = numberOfShots;
     }
 

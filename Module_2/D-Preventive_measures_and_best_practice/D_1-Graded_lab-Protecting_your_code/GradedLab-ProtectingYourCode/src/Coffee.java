@@ -1,3 +1,5 @@
+import com.sun.jdi.InvalidTypeException;
+
 public class Coffee {
 
     // Attributes to store information about the coffee
@@ -12,17 +14,17 @@ public class Coffee {
         this.roast = roast;
         this.price = price;
 
-        // TODO 3: surround the setCaffeineLevel() method call with a try-catch block to handle the exception
 
-        // TODO 4: inside the catch block, set the caffeineLevelInMg to 50
-
-        // The constructor calls the method to set the caffeine level based on the roast
-        setCaffeineLevel();
+        try {
+            // The constructor calls the method to set the caffeine level based on the roast
+            setCaffeineLevel();
+        } catch(Exception e) {
+            caffeineLevelInMg = 50;
+        }
     }
 
-    // TODO 2: declare that the setCaffeineLevel() method throws a InvalidTypeException
     // Method to set the caffeine level of the coffee based on the roast
-    public void setCaffeineLevel() {
+    public void setCaffeineLevel() throws InvalidTypeException{
         if (roast.equals("light")) {
             caffeineLevelInMg = 50;
         } else if (roast.equals("medium")) {
@@ -30,9 +32,8 @@ public class Coffee {
         } else if (roast.equals("dark")) {
             caffeineLevelInMg = 150;
         } else {
-            // TODO 1: remove this statement & throw a "InvalidTypeException" with a message
             //caffeineLevelInMg = 0;
-            throw new ArithmeticException("invalid roast: ‘normal’, please select a valid roast type!");
+            throw new InvalidTypeException("invalid roast: "+roast+", please select a valid roast type!");
         }
     }
 

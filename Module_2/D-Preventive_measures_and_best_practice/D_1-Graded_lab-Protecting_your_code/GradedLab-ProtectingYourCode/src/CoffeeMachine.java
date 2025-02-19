@@ -4,6 +4,8 @@ public class CoffeeMachine {
 
     public static void main(String[] args) {
 
+
+
         // Create a Scanner object to read input
         Scanner keyboard = new Scanner(System.in);
 
@@ -17,6 +19,7 @@ public class CoffeeMachine {
 
             // Read user's choice
             int choice = keyboard.nextInt();
+            Espresso myEspresso  = null;
 
             switch (choice) {
                 case 1:
@@ -34,15 +37,19 @@ public class CoffeeMachine {
                     System.out.print("How many servings would you like? (a number please): ");
                     int numberOfShots = keyboard.nextInt();
 
-                    // TODO 7: surround the myEspresso object with a try-catch block to handle the ArithmeticException.
+                    //Espresso myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
 
-                    Espresso myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    try{
+                        myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    } catch(ArithmeticException e) {
+                        if (numberOfShots <= 0) {
+                            System.out.print("How many servings would you like? (a number please): ");
+                            numberOfShots = keyboard.nextInt();
+                        }
+                    } finally {
+                        myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    }
 
-                    // TODO 8: declare the myEspresso object before the try block and set it to null.
-
-                    // TODO 9: inside the catch block, ask the user to enter number of shots and store it in numberOfShots
-
-                    // TODO 10: add a finally block, and initialize the myEspresso object again
 
                     myEspresso.grindBeans();
 
@@ -80,15 +87,17 @@ public class CoffeeMachine {
                         syrupFlavor = keyboard.next();
                     }
 
-                    // TODO 13: surround the myLatte object with a try-catch block to handle the IllegalArgumentException.
+                    Latte myLatte = null;
+                    try{
+                        myLatte = new Latte(latteName, latteRoast, lattePrice, milkType, syrupFlavor);
+                    } catch(IllegalArgumentException e){
+                        System.out.print("What milk type would you like? (whole, skim, almond, oat): ");
+                        milkType = keyboard.next();
+                    } finally {
+                        myLatte = new Latte(latteName, latteRoast, lattePrice, milkType, syrupFlavor);
 
-                    Latte myLatte = new Latte(latteName, latteRoast, lattePrice, milkType, syrupFlavor);
+                    }
 
-                    // TODO 14: declare the myLatte object before the try block and set it to null.
-
-                    // TODO 15: inside the catch block, ask the user to enter milkType again
-
-                    // TODO 16: add a finally block, and initialize the myLatte object again
 
                     myLatte.grindBeans();
 
